@@ -68,8 +68,31 @@ class _AllScreenState extends State<AllScreen>{
 
                     SizedBox(height: 10),
                     ScrollableList(),
-                    SizedBox(height: 10),
-
+                    SizedBox(height: 10,),
+                    Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Color(0x8EE1EFF8)
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text("See more like this",
+                              style: TextStyle(
+                                  color: Colors.indigo,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold
+                              ),
+                            ),
+                            Icon(Icons.arrow_forward_ios,
+                              color: Colors.indigo,
+                              size: 15,)
+                          ],
+                        )
+                    ),
+                    SizedBox(height: 20,),
                     Text(
                       "Frequently bought",
                       style: TextStyle(

@@ -128,6 +128,30 @@ class _ScrollableListState extends State<ScrollableList>{
                                 fontSize: 16,
                               ),
                             ),
+                            SizedBox(height: 10,),
+                            Container(
+                              height: 20,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Color(0x4DBADC91)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("See more like this",
+                                    style: TextStyle(
+                                        color: Color(0xFF3D753D),
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                  Icon(Icons.arrow_forward_ios,
+                                    color: Color(0xFF3D753D),
+                                    size: 10,)
+                                ],
+                              )
+                            )
                           ],
                         ),
                       ),

@@ -32,42 +32,56 @@ class _Grids3 extends State<Grids3>{
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 90,
-                  width: 130,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                      color: Color(0xC0F2F2FA),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Image.asset(
-                        items[index]["image"]!,
+                Stack(
+                  children: [
+                    Container(
+                      height: 90,
+                      width: 130,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
                       ),
-                      Container(
-                        height: 35,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 2,
-                            color: Colors.lightGreen,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white
-                        ),
-                        child: Center(
-                          child: Padding(
-                              padding: EdgeInsets.all(5),
-                          child: Text("ADD",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green
-                          ),)),
-                        ),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Image.asset(
+                              items[index]["image"]!,
+                            ),
+
+
+
+                            Container(
+                              height: 35,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    width: 2,
+                                    color: Colors.lightGreen,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: Colors.white
+                              ),
+                              child: Center(
+                                child: Padding(
+                                    padding: EdgeInsets.all(5),
+                                    child: Text("Print",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.green
+                                      ),)),
+                              ),
+                            ),
+                          ]
                       ),
-                    ]
-                  ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      alignment: Alignment.topRight,
+                      child: Icon(Icons.favorite_border_outlined,
+                        size: 20,
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 10),
                 Container(
