@@ -28,7 +28,7 @@ class _BottomNavBarState extends State<BottomNavBar>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: currIndex!= 4? SearchAppBar(
-        hintText: "Search Items...",
+        // hintText: "Search Items...",
         onChanged: (value){
           print("Searching $value");
         },

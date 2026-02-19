@@ -20,7 +20,6 @@ class _GridsState extends State<Grids>{
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        // physics: NeverScrollableScrollPhysics(),
         itemCount: items.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,

@@ -76,8 +76,7 @@ class _AllScreenState extends State<AllScreen>{
                             color: Color(0x8EE1EFF8)
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text("See more like this",
                               style: TextStyle(
@@ -86,6 +85,7 @@ class _AllScreenState extends State<AllScreen>{
                                   fontWeight: FontWeight.bold
                               ),
                             ),
+                            SizedBox(width: 10,),
                             Icon(Icons.arrow_forward_ios,
                               color: Colors.indigo,
                               size: 15,)

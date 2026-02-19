@@ -1,4 +1,5 @@
 import 'package:blinkit_clone_app/routes.dart';
+import 'package:blinkit_clone_app/services/shared_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
@@ -14,6 +15,20 @@ class _OtpScreenState extends State<OtpScreen>{
   final List<TextEditingController> otpControllers = List.generate(6, (_)=> TextEditingController());
 
   final TextEditingController otpController = TextEditingController();
+
+  void verifyOtp(String pin) async{
+      if(pin==widget.generatedOtp){
+        await SharedHelper.saveLoginData(token: "token_1", phone: widget.phone);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content:Text("OTP Verified"),
+          ),
+        );
+        Navigator.pushReplacementNamed(context, AppRoutes.home);
+      }
+      else{
+        print("Invalid OTP");
+      }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,17 +72,5 @@ class _OtpScreenState extends State<OtpScreen>{
       ),
       ),
     );
-  }
-  void verifyOtp(String pin) {
-    if(pin==widget.generatedOtp){
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content:Text("OTP Verified"),
-        ),
-      );
-      Navigator.pushReplacementNamed(context, AppRoutes.home);
-    }
-    else{
-      print("Invalid OTP");
-    }
   }
 }

@@ -3,6 +3,8 @@ import 'package:blinkit_clone_app/Boxes.dart';
 import 'package:blinkit_clone_app/Grids.dart';
 import 'package:blinkit_clone_app/ScrollableList.dart';
 import 'package:blinkit_clone_app/ToggleButton.dart';
+import 'package:blinkit_clone_app/routes.dart';
+import 'package:blinkit_clone_app/services/shared_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -339,14 +341,28 @@ class _ProfileScreenState extends State<ProfileScreen>{
                                     SizedBox(height: 20,),
                                     Row(
                                       children: [
-                                        Icon(Icons.logout),
-                                        SizedBox(width: 10,),
-                                        Text("Log out",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 16,
+                                        ElevatedButton(
+                                          onPressed: () async {
+                                            await SharedHelper.logout();
+                                            Navigator.pushReplacementNamed(context, AppRoutes.login);
+                                        },
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0,
+                                            shadowColor: Colors.transparent
                                           ),
-                                        ),
+                                          child: Row(
+                                            children: [
+                                              Icon(Icons.logout),
+                                              SizedBox(width: 10,),
+                                              Text("Log out",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        )
                                       ],
                                     ),
                                   ],

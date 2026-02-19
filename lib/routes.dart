@@ -1,7 +1,9 @@
 import 'package:blinkit_clone_app/CategoriesScreen.dart';
+import 'package:blinkit_clone_app/ItemDetailScreen.dart';
 import 'package:blinkit_clone_app/LoginScreen.dart';
 import 'package:blinkit_clone_app/OtpScreen.dart';
 import 'package:blinkit_clone_app/ProfileScreen.dart';
+import 'package:blinkit_clone_app/SearchScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:blinkit_clone_app/SplashScreen.dart';
@@ -19,6 +21,10 @@ class AppRoutes{
   static const categories='/categories';
   static const print='/print';
   static const profile='/profile';
+
+  static const search_screen='/search_screen';
+  static const item_detail_screen='/item_detail_screen';
+
 }
 
 class Routes {
@@ -51,6 +57,10 @@ class Routes {
         );
       case AppRoutes.profile:
         return MaterialPageRoute(builder: (_) => ProfileScreen());
+      case AppRoutes.search_screen:
+        return MaterialPageRoute(builder: (_)=> SearchScreen());
+      case AppRoutes.item_detail_screen:
+        return MaterialPageRoute(builder: (_)=> ItemDetailScreen());
       default:
         return MaterialPageRoute(builder: (_)=> Scaffold(
           body: Center(

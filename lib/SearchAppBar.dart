@@ -1,3 +1,4 @@
+import 'package:blinkit_clone_app/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +12,6 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     this.hintText = "Search...",
     this.onChanged,
-    required,
-
     required this.onProfileTap,
   }) : super(key: key);
 
@@ -86,6 +85,9 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(10),
                     ),
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.search_screen);
+                    },
                   ),
                 ),
                 SizedBox(height: 10),
