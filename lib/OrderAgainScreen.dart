@@ -16,12 +16,10 @@ class _OrderAgainScreen extends State<OrderAgainScreen>{
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
-
             Text(
               "Frequently bought",
               style: TextStyle(

@@ -13,7 +13,10 @@ class _ElectronicScreenState extends State<ElectronicsScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Grids()
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Grids(),
+        )
     );
   }
 }

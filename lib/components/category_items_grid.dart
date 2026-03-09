@@ -37,7 +37,7 @@ class _CategoryItemsGrid extends State<CategoryItemsGrid>{
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            childAspectRatio: 0.5
+            childAspectRatio: 0.48
         ),
         itemBuilder: (context,index){
         Product product=categoryItems.take(10).toList()[index];

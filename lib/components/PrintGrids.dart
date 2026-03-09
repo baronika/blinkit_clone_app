@@ -52,40 +52,48 @@ class _PrintGridsState extends State<PrintGrids>{
                         color: Colors.white,
                       ),
                       child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Image.network(print.thumbnail),
-                            Expanded(
-                              child: Container(
-                                height: 35,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                      width: 2,
-                                      color: Colors.lightGreen,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: Colors.white
-                                ),
-                                child: Center(
-                                  child: Padding(
-                                      padding: EdgeInsets.all(5),
-                                      child: Text("Print",
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.green
-                                        ),)),
-                                ),
-                              ),
-                            ),
-                          ]
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Image.network(print.thumbnail),
+                        ],
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.topRight,
-                      child: Icon(Icons.favorite_border_outlined,
+
+                    Positioned(
+                      bottom:0 ,
+                      left: 50,
+                      child: Container(
+                        height: 30,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 2,
+                            color: Colors.green,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(5),
+                            child: Text(
+                              "Print",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      top: 5,
+                      right: 5,
+                      child: Icon(
+                        Icons.favorite_border_outlined,
                         size: 20,
                       ),
                     ),
