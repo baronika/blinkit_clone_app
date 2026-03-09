@@ -30,8 +30,8 @@ class SingleBox extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120,
-      height: 100,
+      width: MediaQuery.of(context).size.width*0.28,
+      height: MediaQuery.of(context).size.height*0.12,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),

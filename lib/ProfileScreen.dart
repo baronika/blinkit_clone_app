@@ -1,9 +1,9 @@
-import 'package:blinkit_clone_app/AppearanceDropDown.dart';
-import 'package:blinkit_clone_app/Boxes.dart';
-import 'package:blinkit_clone_app/Grids.dart';
-import 'package:blinkit_clone_app/ScrollableList.dart';
-import 'package:blinkit_clone_app/ToggleButton.dart';
-import 'package:blinkit_clone_app/routes.dart';
+import 'package:blinkit_clone_app/components/AppearanceDropDown.dart';
+import 'package:blinkit_clone_app/components/Boxes.dart';
+import 'package:blinkit_clone_app/components/Grids.dart';
+import 'package:blinkit_clone_app/components/ScrollableList.dart';
+import 'package:blinkit_clone_app/components/ToggleButton.dart';
+import 'package:blinkit_clone_app/navigation/routes.dart';
 import 'package:blinkit_clone_app/services/shared_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -73,12 +73,13 @@ class _ProfileScreenState extends State<ProfileScreen>{
                         color: Colors.white
                     ),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(width: 20,),
                           Icon(Icons.remove_red_eye),
                           SizedBox(width: 10,),
                           Text("Appearance"),
-                          SizedBox(width: 120,),
+                          SizedBox(width: 100,),
                           AppearanceDropDown(),
                         ]
                     ),

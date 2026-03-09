@@ -1,16 +1,20 @@
 import 'package:blinkit_clone_app/CategoriesScreen.dart';
+import 'package:blinkit_clone_app/CheckoutScreen.dart';
 import 'package:blinkit_clone_app/ItemDetailScreen.dart';
-import 'package:blinkit_clone_app/LoginScreen.dart';
-import 'package:blinkit_clone_app/OtpScreen.dart';
+import 'package:blinkit_clone_app/auth/LoginScreen.dart';
+import 'package:blinkit_clone_app/auth/OtpScreen.dart';
 import 'package:blinkit_clone_app/ProfileScreen.dart';
 import 'package:blinkit_clone_app/SearchScreen.dart';
+import 'package:blinkit_clone_app/category_screen.dart';
+import 'package:blinkit_clone_app/data/product_model.dart';
+import 'package:blinkit_clone_app/similar_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:blinkit_clone_app/SplashScreen.dart';
-import 'package:blinkit_clone_app/bottom_nav_bar.dart';
 
-import 'OrderAgainScreen.dart';
-import 'PrintScreen.dart';
+import '../OrderAgainScreen.dart';
+import '../PrintScreen.dart';
+import 'bottom_nav_bar.dart';
 
 class AppRoutes{
   static const splash='/';
@@ -24,6 +28,9 @@ class AppRoutes{
 
   static const search_screen='/search_screen';
   static const item_detail_screen='/item_detail_screen';
+  static const checkout_screen='/checkout_screen';
+  static const category_screen='/category_screen';
+  static const similar_screen='/similar_screen';
 
 }
 
@@ -39,9 +46,7 @@ class Routes {
       case AppRoutes.otp:
         final args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
-          builder: (_) => OtpScreen(
-            phone: args["phone"],
-            generatedOtp: args["otp"],),
+          builder: (_) => OtpScreen(verificationId: '', phoneNumber: '',),
         );
       case AppRoutes.home:
         return MaterialPageRoute(builder: (_) => BottomNavBar(),
@@ -60,7 +65,14 @@ class Routes {
       case AppRoutes.search_screen:
         return MaterialPageRoute(builder: (_)=> SearchScreen());
       case AppRoutes.item_detail_screen:
-        return MaterialPageRoute(builder: (_)=> ItemDetailScreen());
+        final product=settings.arguments as Product;
+        return MaterialPageRoute(builder: (_)=> ItemDetailScreen(product: product,));
+      case AppRoutes.checkout_screen:
+        return MaterialPageRoute(builder: (_)=> CheckOutScreen());
+      case AppRoutes.category_screen:
+        return MaterialPageRoute(builder: (_)=> CategoryScreen());
+      case AppRoutes.similar_screen:
+        return MaterialPageRoute(builder: (_)=> SimilarScreen());
       default:
         return MaterialPageRoute(builder: (_)=> Scaffold(
           body: Center(

@@ -1,5 +1,5 @@
-import 'package:blinkit_clone_app/Filter.dart';
-import 'package:blinkit_clone_app/Grids3.dart';
+import 'package:blinkit_clone_app/components/Filter.dart';
+import 'package:blinkit_clone_app/components/Grids3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,33 +28,26 @@ class _ShowBottomSheetState extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(15),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             width: 400,
             height: 600,
+            padding: EdgeInsets.all(10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Favourites",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20
+                  fontSize: 20,
                 ),
                 ),
-                SizedBox(height: 20,),
-                Row(
-                  children: [
-                    Box1(),
-                    SizedBox(width: 15),
-                    Box1(),
-                    SizedBox(width: 15),
-                    Box1()
-                  ],
-                ),
-                SizedBox(height: 20),
-                Grids3(),
+                SizedBox(height: 10,),
+                Flexible(
+                    child: Grids3()),
               ],
             ),
           ),

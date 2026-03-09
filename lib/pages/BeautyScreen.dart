@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Grids.dart';
+import '../components/Grids.dart';
 
-class ElectronicsScreen extends StatefulWidget{
+class BeautyScreen extends StatefulWidget{
   @override
-  State<StatefulWidget> createState()=> _ElectronicScreenState();
+  State<StatefulWidget> createState() => _BeautyScreenState();
 
 }
 
-class _ElectronicScreenState extends State<ElectronicsScreen>{
+class _BeautyScreenState extends State<BeautyScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(

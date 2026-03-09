@@ -18,8 +18,8 @@ class _AppearanceDropDown extends State<AppearanceDropDown>{
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: selected,
+        isDense: true,
         icon: Icon(Icons.arrow_drop_down),
-        underline: SizedBox(),
         items: items.map((String item){
           return DropdownMenuItem(
               value: item,

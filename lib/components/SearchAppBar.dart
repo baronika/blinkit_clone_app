@@ -1,6 +1,8 @@
-import 'package:blinkit_clone_app/routes.dart';
+import 'package:blinkit_clone_app/navigation/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'address_bottom_sheet.dart';
 
 class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String hintText;
@@ -46,14 +48,21 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
                         ),
                       ),
 
-                      Text(
-                        "Industrial Area, Sector 74, Mohali",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Text(
+                            "Industrial Area, Sector 74, Mohali",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: (){AddressBottomSheet.showAddressBottomSheet(context);
+                            },
+                              child: Icon(Icons.arrow_drop_down)),
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -67,6 +76,7 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ],
             ),
+            SizedBox(height: 10,),
             Column(
               children: [
                 Container(

@@ -1,9 +1,11 @@
-import 'package:blinkit_clone_app/Grids.dart';
-import 'package:blinkit_clone_app/routes.dart';
+import 'package:blinkit_clone_app/components/Grids.dart';
+import 'package:blinkit_clone_app/data/category_model.dart';
+import 'package:blinkit_clone_app/navigation/routes.dart';
+import 'package:blinkit_clone_app/services/api/product_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'HomeScreen.dart';
-import 'SearchAppBar.dart';
+import 'components/SearchAppBar.dart';
 
 class CategoriesScreen extends StatefulWidget{
   @override
@@ -12,6 +14,19 @@ class CategoriesScreen extends StatefulWidget{
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen>{
+  List<Category> categories=[];
+  @override
+  void initState() {
+    super.initState();
+    loadCategories();
+  }
+  void loadCategories() async{
+    ProductService service=ProductService();
+    categories=await service.getCategory();
+    setState(() {
+
+    });
+  }
   final PageController pageController =PageController(initialPage: 0);
 
     @override

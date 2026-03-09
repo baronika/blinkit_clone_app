@@ -1,7 +1,7 @@
-import 'package:blinkit_clone_app/FrequentlyBoughtGrids.dart';
-import 'package:blinkit_clone_app/Grids.dart';
-import 'package:blinkit_clone_app/Grids3.dart';
-import 'package:blinkit_clone_app/ScrollableList.dart';
+import 'package:blinkit_clone_app/components/FrequentlyBoughtGrids.dart';
+import 'package:blinkit_clone_app/components/Grids.dart';
+import 'package:blinkit_clone_app/components/Grids3.dart';
+import 'package:blinkit_clone_app/components/ScrollableList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,48 +15,52 @@ class _OrderAgainScreen extends State<OrderAgainScreen>{
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(height: 20),
-      
-          Text(
-            "Frequently bought",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+      child: Padding(
+        padding: const EdgeInsets.all(5),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 20),
+
+            Text(
+              "Frequently bought",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-      
-          SizedBox(height: 20),
-          FrequentlyBoughtGrids(),
-          FrequentlyBoughtGrids(),
 
-          SizedBox(height: 20),
+            SizedBox(height: 20),
+            FrequentlyBoughtGrids(),
+            FrequentlyBoughtGrids(),
 
-          Text(
-            "More than you ordered",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+            SizedBox(height: 20),
+
+            Text(
+              "More than you ordered",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
 
-          SizedBox(height: 20),
-          FrequentlyBoughtGrids(),
-          FrequentlyBoughtGrids(),
+            SizedBox(height: 20),
+            FrequentlyBoughtGrids(),
+            FrequentlyBoughtGrids(),
 
-          SizedBox(height: 20),
+            SizedBox(height: 20),
 
-          Text(
-            "Previously bought",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+            Text(
+              "Previously bought",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
 
-          ScrollableList(),
-        ],
+            ScrollableList(),
+          ],
+        ),
       ),
     );
   }

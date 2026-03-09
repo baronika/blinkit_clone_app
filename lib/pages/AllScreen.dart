@@ -1,7 +1,8 @@
-import 'package:blinkit_clone_app/FeaturedGrid.dart';
-import 'package:blinkit_clone_app/Grids.dart';
-import 'package:blinkit_clone_app/ScrollableList.dart';
-import 'package:blinkit_clone_app/FrequentlyBoughtGrids.dart';
+import 'package:blinkit_clone_app/components/FeaturedGrid.dart';
+import 'package:blinkit_clone_app/components/Grids.dart';
+import 'package:blinkit_clone_app/components/ScrollableList.dart';
+import 'package:blinkit_clone_app/components/FrequentlyBoughtGrids.dart';
+import 'package:blinkit_clone_app/components/see_more_options.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -55,9 +56,6 @@ class _AllScreenState extends State<AllScreen>{
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
-                    SizedBox(height: 20),
-
                     Text(
                       "Top Picks",
                       style: TextStyle(
@@ -66,32 +64,9 @@ class _AllScreenState extends State<AllScreen>{
                       ),
                     ),
 
-                    SizedBox(height: 10),
                     ScrollableList(),
                     SizedBox(height: 10,),
-                    Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Color(0x8EE1EFF8)
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("See more like this",
-                              style: TextStyle(
-                                  color: Colors.indigo,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold
-                              ),
-                            ),
-                            SizedBox(width: 10,),
-                            Icon(Icons.arrow_forward_ios,
-                              color: Colors.indigo,
-                              size: 15,)
-                          ],
-                        )
-                    ),
+                    SeeMoreOptions(),
                     SizedBox(height: 20,),
                     Text(
                       "Frequently bought",

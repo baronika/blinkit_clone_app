@@ -1,4 +1,4 @@
-import 'package:blinkit_clone_app/routes.dart';
+import 'package:blinkit_clone_app/navigation/routes.dart';
 import 'package:blinkit_clone_app/services/shared_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen>{
   }
 
   void checkLogin() async{
-    bool isLoggedIn=await SharedHelper.isLoggedIn();
+    bool isLoggedIn=await SharedHelper.getLogin();
     await Future.delayed(Duration(seconds: 2));
     if(isLoggedIn){
       Navigator.pushReplacementNamed(context, AppRoutes.home);

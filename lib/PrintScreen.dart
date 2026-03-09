@@ -1,7 +1,7 @@
-import 'package:blinkit_clone_app/Boxes.dart';
-import 'package:blinkit_clone_app/Grids3.dart';
-import 'package:blinkit_clone_app/PrintGrids.dart';
-import 'package:blinkit_clone_app/ScrollableList.dart';
+import 'package:blinkit_clone_app/components/Boxes.dart';
+import 'package:blinkit_clone_app/components/Grids3.dart';
+import 'package:blinkit_clone_app/components/PrintGrids.dart';
+import 'package:blinkit_clone_app/components/ScrollableList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -94,12 +94,12 @@ class _PrintScreen extends State<PrintScreen> {
                 ),
               ),
               Padding(padding: EdgeInsets.all(20),
-              child:PrintGrids(),),
+              child:Expanded(child: PrintGrids()),),
               SizedBox(
                 child: Padding(padding: EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      Text("India's last minute app️",
+                      Text("India's last minute app️ 🧡",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Roboto',

@@ -1,8 +1,8 @@
-import 'package:blinkit_clone_app/AllScreen.dart';
-import 'package:blinkit_clone_app/BeautyScreen.dart';
-import 'package:blinkit_clone_app/DecorScreen.dart';
-import 'package:blinkit_clone_app/ElectronicsScreen.dart';
-import 'package:blinkit_clone_app/SearchAppBar.dart';
+import 'package:blinkit_clone_app/pages/AllScreen.dart';
+import 'package:blinkit_clone_app/pages/BeautyScreen.dart';
+import 'package:blinkit_clone_app/pages/DecorScreen.dart';
+import 'package:blinkit_clone_app/pages/ElectronicsScreen.dart';
+import 'package:blinkit_clone_app/components/SearchAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -28,47 +28,67 @@ class _HomeScreenState extends State<HomeScreen>{
         color: Colors.yellow,
         child: Column(
           children: [
-            SizedBox(height: 20),
-
+            SizedBox(height: 5),
             SizedBox(
-              height: 30,
+              height: 50,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
                     onTap: ()=> changePage(0),
-                    child: Text(
-                      "All",
-                      style: TextStyle(
-                        fontWeight: currIndex==0? FontWeight.bold: FontWeight.normal
-                      ),
+                    child: Column(
+                      children: [
+                        Icon(Icons.shopping_bag_outlined,
+                        size: 20,),
+                        Text(
+                          "All",
+                          style: TextStyle(
+                            fontWeight: currIndex==0? FontWeight.bold: FontWeight.normal
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   GestureDetector(
                     onTap: ()=> changePage(1),
-                    child: Text(
-                      "Electronics",
-                      style: TextStyle(
-                        fontWeight: currIndex==1? FontWeight.bold: FontWeight.normal
-                      ),
+                    child: Column(
+                      children: [
+                        Icon(Icons.headphones_rounded, size: 20,),
+                        Text(
+                          "Electronics",
+                          style: TextStyle(
+                            fontWeight: currIndex==1? FontWeight.bold: FontWeight.normal
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   GestureDetector(
                     onTap: ()=> changePage(2),
-                    child: Text(
-                      "Beauty",
-                      style: TextStyle(
-                        fontWeight: currIndex==2 ? FontWeight.bold: FontWeight.normal
-                      ),
+                    child: Column(
+                      children: [
+                        Icon(Icons.face_retouching_natural,size: 20,),
+                        Text(
+                          "Beauty",
+                          style: TextStyle(
+                            fontWeight: currIndex==2 ? FontWeight.bold: FontWeight.normal
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   GestureDetector(
                     onTap: ()=> changePage(3),
-                    child: Text(
-                      "Decor",
-                      style: TextStyle(
-                          fontWeight: currIndex==3 ? FontWeight.bold: FontWeight.normal
-                      ),
+                    child: Column(
+                      children: [
+                        Icon(Icons.light, size: 20,),
+                        Text(
+                          "Decor",
+                          style: TextStyle(
+                              fontWeight: currIndex==3 ? FontWeight.bold: FontWeight.normal
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

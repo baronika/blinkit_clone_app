@@ -1,4 +1,6 @@
-import 'package:blinkit_clone_app/ShowBottomSheet.dart';
+import 'package:blinkit_clone_app/components/ShowBottomSheet.dart';
+import 'package:blinkit_clone_app/data/product_model.dart';
+import 'package:blinkit_clone_app/services/api/product_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,44 +10,42 @@ class FrequentlyBoughtGrids extends StatefulWidget {
   }
 
 class _FrequentlyBoughtGrids extends State<FrequentlyBoughtGrids> {
-  final List<Map<String, String>> items = [
-    {
-      "image": "assets/icons/67419100_9662747.png",
-      "image2": "vecteezy_computer-monitor-png_9887131.png",
-      "text": "Home"
-    },
-    {
-      "image": "assets/icons/67419100_9662747.png",
-      "image2": "vecteezy_computer-monitor-png_9887131.png",
-      "text": "Home"
-    },
-    {
-      "image": "assets/icons/67419100_9662747.png",
-      "image2": "vecteezy_computer-monitor-png_9887131.png",
-      "text": "Home"
-    },
+  List<Product> frequentlyBought=[];
 
-  ];
+  @override
+  void initState() {
+    super.initState();
+    loadFrequentlyBought();
+  }
 
+  void loadFrequentlyBought() async{
+    ProductService service=ProductService();
+    frequentlyBought=await service.fetchProducts();
+    setState(() {
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        itemCount: items.length,
+        itemCount: frequentlyBought.take(3).length,
+        physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 5,
+            crossAxisSpacing: 2,
+            mainAxisSpacing: 3,
             childAspectRatio: 0.9
         ),
         itemBuilder: (context, index) {
+          Product bought=frequentlyBought.take(3).toList()[index];
           return GestureDetector(
             onTap: (){
               ShowBottomSheet.show(context);
             },
               child: Card(
+                elevation: 0,
                 color: Color(0xFFE2EEF1),
-            elevation: 0,
             child: Padding(
               padding: EdgeInsets.fromLTRB(4, 10, 4, 20),
               child:Column(
@@ -57,28 +57,24 @@ class _FrequentlyBoughtGrids extends State<FrequentlyBoughtGrids> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: 55,
-                          height: 55,
+                          width: 40,
+                          height: 40,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Image.asset(
-                            items[index]["image"]!,
-                          ),
+                          child: Image.network(bought.thumbnail)
                         ),
                         SizedBox(width: 5,),
 
                         Container(
-                          width: 55,
-                          height: 55,
+                          width: 40,
+                          height: 40,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Image.asset(
-                            items[index]["image"]!,
-                          ),
+                            child: Image.network(bought.thumbnail)
                         ),
                       ],
                     ),
@@ -91,10 +87,12 @@ class _FrequentlyBoughtGrids extends State<FrequentlyBoughtGrids> {
                     color: Colors.white,
                     child: Text("+1 more"),
                 ),
-                SizedBox(height: 10,),
-                Text(
-                  items[index]["text"]!,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: Text(
+                    bought.title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12,overflow: TextOverflow.ellipsis),
+                  ),
                 )
               ],
             ),

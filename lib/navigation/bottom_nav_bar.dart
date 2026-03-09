@@ -3,11 +3,11 @@ import 'package:blinkit_clone_app/HomeScreen.dart';
 import 'package:blinkit_clone_app/OrderAgainScreen.dart';
 import 'package:blinkit_clone_app/PrintScreen.dart';
 import 'package:blinkit_clone_app/ProfileScreen.dart';
-import 'package:blinkit_clone_app/routes.dart';
+import 'package:blinkit_clone_app/navigation/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'SearchAppBar.dart';
+import '../components/SearchAppBar.dart';
 
 class BottomNavBar extends StatefulWidget{
   @override
@@ -21,7 +21,7 @@ class _BottomNavBarState extends State<BottomNavBar>{
     OrderAgainScreen(),
     CategoriesScreen(),
     PrintScreen(),
-    ProfileScreen(),
+    // ProfileScreen(),
 
   ];
   @override
@@ -51,7 +51,7 @@ class _BottomNavBarState extends State<BottomNavBar>{
             BottomNavigationBarItem(icon: Icon(Icons.shopping_basket_rounded), label:'Order Again'),
             BottomNavigationBarItem(icon: Icon(Icons.space_dashboard_rounded),label: 'Categories'),
             BottomNavigationBarItem(icon: Icon(Icons.print_rounded),label: 'Print'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_circle_rounded),label: 'Profile'),
+            // BottomNavigationBarItem(icon: Icon(Icons.account_circle_rounded),label: 'Profile'),
           ],
       ),
     );

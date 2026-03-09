@@ -1,31 +1,32 @@
-import 'package:blinkit_clone_app/custom_rating_bar.dart';
+import 'package:blinkit_clone_app/navigation/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PrintGrids extends StatefulWidget{
+import 'components/custom_rating_bar.dart';
+
+class SingleDetailBox extends StatefulWidget{
   @override
-  State<StatefulWidget> createState()=> _PrintGridsState();
+  State<StatefulWidget> createState()=> _SingleDetailBoxState();
 
 }
-
-class _PrintGridsState extends State<PrintGrids>{
-  final List<Map<String,String>> items=[
-    {"image": "assets/icons/67419100_9662747.png","text": "Home"},
+class _SingleDetailBoxState extends State<SingleDetailBox> {
+  final List<Map<String, String>> similarItems = [
+    {"image": "assets/icons/67419100_9662747.png", "text": "Home"},
     {"image": "assets/icons/67419100_9662747.png", "text": "Plus"},
-    {"image": "assets/icons/67419100_9662747.png","text": "Eighteen"},
-    {"image": "assets/icons/67419100_9662747.png","text": "Home"},
-    {"image": "assets/icons/67419100_9662747.png","text": "Plus"},
+    {"image": "assets/icons/67419100_9662747.png", "text": "Eighteen"},
   ];
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        itemCount: items.length,
+        itemCount: similarItems.length,
+        physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             crossAxisSpacing: 10,
             mainAxisSpacing: 30,
-            childAspectRatio: 0.58
+            childAspectRatio: 0.45
         ),
         itemBuilder: (context,index){
           return Container(
@@ -45,30 +46,29 @@ class _PrintGridsState extends State<PrintGrids>{
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Image.asset(
-                              items[index]["image"]!,
+                              similarItems[index]["image"]!,
                             ),
-
-
-
-                            Container(
-                              height: 35,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 2,
-                                    color: Colors.lightGreen,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Colors.white
-                              ),
-                              child: Center(
-                                child: Padding(
-                                    padding: EdgeInsets.all(5),
-                                    child: Text("Print",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.green
-                                      ),)),
+                            Expanded(
+                              child: Container(
+                                height: 30,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      width: 2,
+                                      color: Colors.lightGreen,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: Colors.white
+                                ),
+                                child: Center(
+                                  child: Padding(
+                                      padding: EdgeInsets.all(5),
+                                        child: Text("ADD",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.green
+                                        ),)),
+                                ),
                               ),
                             ),
                           ]
@@ -90,7 +90,7 @@ class _PrintGridsState extends State<PrintGrids>{
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "3 sheets",
+                        "1 set",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
@@ -99,7 +99,7 @@ class _PrintGridsState extends State<PrintGrids>{
                       ),
 
                       Text(
-                        items[index]["text"]!,
+                        similarItems[index]["text"]!,
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold),

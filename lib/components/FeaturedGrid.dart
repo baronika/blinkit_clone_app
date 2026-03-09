@@ -1,26 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Grids extends StatefulWidget{
+class FeaturedGrid extends StatefulWidget{
   @override
-  State<StatefulWidget> createState() => _GridsState();
-
+  State<StatefulWidget> createState()=> _FeaturedGridState();
 }
 
-class _GridsState extends State<Grids>{
+class _FeaturedGridState extends State<FeaturedGrid>{
   final List<Map<String,String>> items=[
     {"image": "assets/icons/67419100_9662747.png","text": "Home"},
     {"image": "assets/icons/67419100_9662747.png", "text": "Plus"},
     {"image": "assets/icons/67419100_9662747.png","text": "Eighteen"},
-    {"image": "assets/icons/67419100_9662747.png","text": "Home"},
-    {"image": "assets/icons/67419100_9662747.png","text": "Plus"},
-    {"image": "assets/icons/67419100_9662747.png","text": "Eighteen"},
+    // {"image": "assets/icons/67419100_9662747.png","text": "Home"},
+    // {"image": "assets/icons/67419100_9662747.png","text": "Plus"},
+    // {"image": "assets/icons/67419100_9662747.png","text": "Eighteen"},
   ];
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
         itemCount: items.length,
+        physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           crossAxisSpacing: 10,
@@ -28,20 +28,21 @@ class _GridsState extends State<Grids>{
         ),
         itemBuilder: (context,index){
           return Card(
-            color: Color(0xFFE2EEF1),
+            color: Color(0xFFFCFCF3),
             elevation: 0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: 10),
+                Text(
+                  "Notebooks",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 Image.asset(
                   items[index]["image"]!,
                   height: 60,
                 ),
-                SizedBox(height: 10),
-                Text(
-                  items[index]["text"]!,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )
+
               ],
             ),
           );
