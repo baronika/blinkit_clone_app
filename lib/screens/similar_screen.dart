@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'components/Filter.dart';
-import 'components/category_items_grid.dart';
-import 'components/custom_app_bar.dart';
-import 'components/list_categories.dart';
+import '../components/Filter.dart';
+import '../components/category_items_grid.dart';
+import '../components/custom_app_bar.dart';
+import '../components/list_categories.dart';
 
 class SimilarScreen extends StatefulWidget{
   @override
@@ -12,12 +12,17 @@ class SimilarScreen extends StatefulWidget{
 }
 
 class _SimilarScreenState extends State<SimilarScreen>{
+  final TextEditingController categoryController=TextEditingController();
+  String selectedCategory="Beauty";
+
+
   List<Map<String, dynamic>> filterOptions = [
     {"title": "Filter", "icon": Icons.tune},
     {"title": "Sort", "icon": Icons.swap_vert},
     {"title": "Quantity", "icon": Icons.add},
     {"title": "Price", "icon": Icons.tag},
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +35,13 @@ class _SimilarScreenState extends State<SimilarScreen>{
         padding: const EdgeInsets.all(10),
         child: Row(
           children: [
-            Container(width: 60, child: ListCategories()),
+            Container(width: 60,
+            child: ListCategories(
+              onCategoryTap: (category){
+                setState(() {
+                  selectedCategory=category;
+                });
+              },)),
             SizedBox(width: 10),
             Expanded(
               child: Column(
@@ -54,7 +65,7 @@ class _SimilarScreenState extends State<SimilarScreen>{
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(10),
-                      child: CategoryItemsGrid(),
+                      child: CategoryItemsGrid(category: selectedCategory,),
                     ),
                   ),
                 ],

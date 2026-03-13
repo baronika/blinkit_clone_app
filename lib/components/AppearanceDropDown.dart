@@ -8,18 +8,20 @@ class AppearanceDropDown extends StatefulWidget{
 }
 
 class _AppearanceDropDown extends State<AppearanceDropDown>{
-  String selected="LIGHT";
+  String selected="Light";
   final List<String> items=[
-    "LIGHT",
-    "DARK",
-    "SYSTEM THEME",
+    "Light",
+    "Dark",
+    "System Theme",
   ];
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      dropdownColor: Colors.white,
       value: selected,
+        icon: Icon(Icons.arrow_drop_down, size: 20,),
         isDense: true,
-        icon: Icon(Icons.arrow_drop_down),
+        underline: SizedBox(),
         items: items.map((String item){
           return DropdownMenuItem(
               value: item,

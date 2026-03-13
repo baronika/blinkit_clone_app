@@ -1,4 +1,4 @@
-import 'package:blinkit_clone_app/ItemDetailScreen.dart';
+import 'package:blinkit_clone_app/screens/ItemDetailScreen.dart';
 import 'package:blinkit_clone_app/navigation/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

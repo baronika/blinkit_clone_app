@@ -2,7 +2,7 @@ import 'package:blinkit_clone_app/navigation/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'components/custom_rating_bar.dart';
+import 'custom_rating_bar.dart';
 
 class SingleDetailBox extends StatefulWidget{
   @override

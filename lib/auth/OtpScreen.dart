@@ -1,18 +1,19 @@
 import 'package:blinkit_clone_app/navigation/routes.dart';
+import 'package:blinkit_clone_app/services/db/firestore_service.dart';
 import 'package:blinkit_clone_app/services/shared_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class OtpScreen extends StatefulWidget{
-  // final String generatedOtp;
-  // const OtpScreen({ super.key, required this.generatedOtp, required this.phone});
 
   final String verificationId;
   final String phoneNumber;
+  final String name;
 
-  const OtpScreen({Key? key, required this.verificationId, required this.phoneNumber}): super(key: key);
+  const OtpScreen({Key? key, required this.verificationId, required this.phoneNumber, required this.name}): super(key: key);
 
   @override
   State<StatefulWidget> createState() => _OtpScreenState();
@@ -26,26 +27,15 @@ class _OtpScreenState extends State<OtpScreen>{
     PhoneAuthCredential credential=PhoneAuthProvider.credential(
         verificationId: widget.verificationId,
         smsCode: otpController.text);
-    await FirebaseAuth.instance.signInWithCredential(credential);
+
+    UserCredential userCredential=await FirebaseAuth.instance.signInWithCredential(credential);
+
     print("Login Successful");
     await SharedHelper.saveLogin(true);
-    await SharedHelper.savePhone(widget.phoneNumber);
+    await SharedHelper.savePhoneName(widget.name,widget.phoneNumber);
+    await FirestoreService().saveUserToFirestore(widget.name);
     Navigator.pushNamed(context, AppRoutes.home);
   }
-  // void verifyOtp(String pin) async{
-  //     if(pin==widget.generatedOtp){
-  //       await SharedHelper.saveLoginData(token: "token_1", phone: widget.phone);
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         SnackBar(content:Text("OTP Verified"),
-  //         ),
-  //       );
-  //       Navigator.pushReplacementNamed(context, AppRoutes.home);
-  //     }
-  //     else{
-  //       print("Invalid OTP");
-  //     }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,8 +49,6 @@ class _OtpScreenState extends State<OtpScreen>{
           children: [
             SizedBox(height: 40),
             Text("Enter 6 digit OTP",
-            // Text(
-            //   "Otp is ${widget.verificationId}",
             style: TextStyle(
               fontWeight: FontWeight.bold),
             ),

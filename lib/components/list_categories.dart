@@ -7,6 +7,16 @@ import '../navigation/routes.dart';
 import '../services/api/product_service.dart';
 
 class ListCategories extends StatefulWidget {
+
+  final Function(String) onCategoryTap;
+  const ListCategories({super.key, required this.onCategoryTap});
+
+  // final TextEditingController categoryController;
+  // String selectedCategory="Beauty";
+  //
+  // const ListCategories({super.key, required this.categoryController});
+
+
   @override
   State<StatefulWidget> createState() => _ListCategoriesState();
 }
@@ -17,13 +27,12 @@ class _ListCategoriesState extends State<ListCategories> {
   bool isLoading = true;
   @override
   void initState() {
-    super.initState();
-    loadProducts3();
-  }
+      super.initState();
+      loadCategories();
+    }
 
-  void loadProducts3() async {
+  void loadCategories() async {
     ProductService service = ProductService();
-
     categories = await service.getCategory();
 
     setState(() {
@@ -33,6 +42,9 @@ class _ListCategoriesState extends State<ListCategories> {
 
   @override
   Widget build(BuildContext context) {
+    if(isLoading){
+      return const Center(child: CircularProgressIndicator(),);
+    }
     return Container(
       child: ListView.builder(
         itemCount: categories.take(10).length,
@@ -41,7 +53,7 @@ class _ListCategoriesState extends State<ListCategories> {
           Category category=categories.take(10).toList()[index];
           return GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, AppRoutes.item_detail_screen, arguments: category.slug);
+              widget.onCategoryTap(category.slug);
             },
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,19 +1,19 @@
-import 'package:blinkit_clone_app/CategoriesScreen.dart';
-import 'package:blinkit_clone_app/CheckoutScreen.dart';
-import 'package:blinkit_clone_app/ItemDetailScreen.dart';
+import 'package:blinkit_clone_app/screens/CategoriesScreen.dart';
+import 'package:blinkit_clone_app/screens/ItemDetailScreen.dart';
 import 'package:blinkit_clone_app/auth/LoginScreen.dart';
 import 'package:blinkit_clone_app/auth/OtpScreen.dart';
-import 'package:blinkit_clone_app/ProfileScreen.dart';
-import 'package:blinkit_clone_app/SearchScreen.dart';
-import 'package:blinkit_clone_app/category_screen.dart';
+import 'package:blinkit_clone_app/screens/SearchScreen.dart';
+import 'package:blinkit_clone_app/screens/category_screen.dart';
 import 'package:blinkit_clone_app/data/product_model.dart';
-import 'package:blinkit_clone_app/similar_screen.dart';
+import 'package:blinkit_clone_app/screens/similar_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:blinkit_clone_app/SplashScreen.dart';
+import 'package:blinkit_clone_app/screens/SplashScreen.dart';
 
-import '../OrderAgainScreen.dart';
-import '../PrintScreen.dart';
+import '../ProfileScreen.dart';
+import '../screens/CheckoutScreen.dart';
+import '../screens/OrderAgainScreen.dart';
+import '../screens/PrintScreen.dart';
 import 'bottom_nav_bar.dart';
 
 class AppRoutes{
@@ -46,7 +46,7 @@ class Routes {
       case AppRoutes.otp:
         final args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
-          builder: (_) => OtpScreen(verificationId: '', phoneNumber: '',),
+          builder: (_) => OtpScreen(verificationId: '', phoneNumber: '', name: '',),
         );
       case AppRoutes.home:
         return MaterialPageRoute(builder: (_) => BottomNavBar(),

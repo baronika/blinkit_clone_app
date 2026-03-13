@@ -7,26 +7,37 @@ import '../services/api/product_service.dart';
 import 'custom_rating_bar.dart';
 
 class CategoryItemsGrid extends StatefulWidget{
+  final String category;
+
+  const CategoryItemsGrid({super.key, required this.category});
+
   @override
   State<StatefulWidget> createState() => _CategoryItemsGrid();
 }
 
 class _CategoryItemsGrid extends State<CategoryItemsGrid>{
   List<Product> categoryItems=[];
-  bool isLoading = true;
+  bool isLoading=true;
   @override
   void initState() {
     super.initState();
-    loadProducts3();
+    loadProductsByCategory();
   }
 
-  void loadProducts3() async {
-    ProductService service = ProductService();
+  @override
+  void didUpdateWidget(covariant CategoryItemsGrid oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if(oldWidget.category!=widget.category){
+      loadProductsByCategory();
+    }
+  }
 
-    categoryItems = await service.fetchProducts();
+  void loadProductsByCategory() async {
+    ProductService service = ProductService();
+    categoryItems = await service.fetchProductByCategory(widget.category);
 
     setState(() {
-      isLoading = false;
+      isLoading=false;
     });
   }
   @override
@@ -43,7 +54,7 @@ class _CategoryItemsGrid extends State<CategoryItemsGrid>{
         Product product=categoryItems.take(10).toList()[index];
           return GestureDetector(
             onTap: (){
-              Navigator.pushNamed(context, AppRoutes.item_detail_screen);
+              Navigator.pushNamed(context, AppRoutes.category_screen,arguments: product);
             },
             child: Container(
               child: Column(

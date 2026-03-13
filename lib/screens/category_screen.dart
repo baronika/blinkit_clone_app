@@ -8,23 +8,32 @@ import 'package:blinkit_clone_app/components/category_items_grid.dart';
 import 'package:blinkit_clone_app/components/custom_app_bar.dart';
 import 'package:blinkit_clone_app/components/list_categories.dart';
 import 'package:blinkit_clone_app/navigation/routes.dart';
+import 'package:blinkit_clone_app/services/db/firestore_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'components/address_bottom_sheet.dart';
+import '../components/address_bottom_sheet.dart';
 
 class CategoryScreen extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() => _CategoryScreenState();
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
+  TextEditingController categoryController=TextEditingController();
+  String? selectedAddress;
+  String selectedCategory="Beauty";
+
+  final FirestoreService firestoreService=FirestoreService();
+
   List<Map<String, dynamic>> filterOptions = [
     {"title": "Filter", "icon": Icons.tune},
     {"title": "Sort", "icon": Icons.swap_vert},
     {"title": "Quantity", "icon": Icons.add},
     {"title": "Price", "icon": Icons.tag},
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +51,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
         padding: const EdgeInsets.all(10),
         child: Row(
           children: [
-            Container(width: 75, child: ListCategories()),
+            Container(width: 75, child: ListCategories(
+              onCategoryTap: (category){
+                setState(() {
+                  selectedCategory=category;
+                });
+              },)),
             Expanded(
               child: Column(
                 children: [
@@ -67,7 +81,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   ),
                   SizedBox(height: 20,),
                   Expanded(
-                      child: CategoryItemsGrid(),
+                      child: CategoryItemsGrid(category: selectedCategory),
                   ),
                 ],
               ),

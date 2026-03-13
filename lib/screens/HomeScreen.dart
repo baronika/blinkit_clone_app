@@ -3,6 +3,7 @@ import 'package:blinkit_clone_app/pages/BeautyScreen.dart';
 import 'package:blinkit_clone_app/pages/DecorScreen.dart';
 import 'package:blinkit_clone_app/pages/ElectronicsScreen.dart';
 import 'package:blinkit_clone_app/components/SearchAppBar.dart';
+import 'package:blinkit_clone_app/services/db/firestore_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -13,6 +14,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen>{
+  final FirestoreService firestoreService=FirestoreService();
+  @override
+  void initState() {
+    super.initState();
+    firestoreService.getAddress();
+  }
   final PageController pageController =PageController(initialPage: 0);
   int currIndex=0;
   void changePage(int index){

@@ -1,4 +1,4 @@
-import 'package:blinkit_clone_app/SingleDetailBox.dart';
+import 'package:blinkit_clone_app/components/SingleDetailBox.dart';
 import 'package:blinkit_clone_app/components/add_button.dart';
 import 'package:blinkit_clone_app/components/address_bottom_sheet.dart';
 import 'package:blinkit_clone_app/components/cart_list.dart';

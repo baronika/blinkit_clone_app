@@ -22,6 +22,9 @@ class _PrintGridsState extends State<PrintGrids>{
   void loadPrintProducts() async{
     ProductService service=ProductService();
     printItems=await service.fetchProducts();
+    setState(() {
+
+    });
   }
   @override
   Widget build(BuildContext context) {

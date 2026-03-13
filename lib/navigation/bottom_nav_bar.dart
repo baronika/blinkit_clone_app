@@ -1,8 +1,7 @@
-import 'package:blinkit_clone_app/CategoriesScreen.dart';
-import 'package:blinkit_clone_app/HomeScreen.dart';
-import 'package:blinkit_clone_app/OrderAgainScreen.dart';
-import 'package:blinkit_clone_app/PrintScreen.dart';
-import 'package:blinkit_clone_app/ProfileScreen.dart';
+import 'package:blinkit_clone_app/screens/CategoriesScreen.dart';
+import 'package:blinkit_clone_app/screens/HomeScreen.dart';
+import 'package:blinkit_clone_app/screens/OrderAgainScreen.dart';
+import 'package:blinkit_clone_app/screens/PrintScreen.dart';
 import 'package:blinkit_clone_app/navigation/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
