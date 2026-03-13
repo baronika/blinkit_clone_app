@@ -54,6 +54,10 @@ dev_dependencies:
 
   flutter_rating_bar: ^4.0.1
 
+  cloud_firestore: ^5.4.0
+
+  share_plus: ^7.2.1
+
 flutter:
 
   # The following line ensures that the Material Icons font is

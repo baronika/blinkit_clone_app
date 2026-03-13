@@ -17,8 +17,10 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController phoneController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
   PhoneNumber number = PhoneNumber(isoCode: 'IN');
   String phoneNumber = "";
+  String name="";
 
   @override
   Widget build(BuildContext context) {
@@ -28,24 +30,42 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: EdgeInsets.all(20),
           child: Column(
             children: [
-              Expanded(
-                child: InternationalPhoneNumberInput(
-                  onInputChanged: (PhoneNumber number) {
-                    phoneNumber = number.phoneNumber!;
-                  },
-                  selectorConfig: SelectorConfig(
-                    selectorType: PhoneInputSelectorType.DROPDOWN,
-                  ),
-                  initialValue: number,
-                  textFieldController: phoneController,
-                  formatInput: true,
-                  keyboardType: TextInputType.number,
-                  inputDecoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Enter phone number",
-                  ),
+              Spacer(),
+              Text("Blinkit, the last minute app",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500
+                ),),
+              Spacer(),
+
+              TextField(
+                controller: nameController,
+                decoration: InputDecoration(
+                  labelText: "Enter your Name",
+                  border: OutlineInputBorder()
+                ),
+                onChanged: (value){
+                  name=value;
+                },
+              ),
+              SizedBox(height: 10,),
+              InternationalPhoneNumberInput(
+                onInputChanged: (PhoneNumber number) {
+                  phoneNumber = number.phoneNumber!;
+                },
+                selectorConfig: SelectorConfig(
+                  selectorType: PhoneInputSelectorType.DROPDOWN,
+                ),
+                initialValue: number,
+                textFieldController: phoneController,
+                formatInput: true,
+                keyboardType: TextInputType.number,
+                inputDecoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Enter phone number",
                 ),
               ),
+              SizedBox(height: 50,),
               SizedBox(
                 height: 55,
                 width: double.infinity,
@@ -85,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
           print(e.message);
         },
         codeSent: (String verId,int? resetToken){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> OtpScreen( verificationId: verId, phoneNumber: phoneNumber,)));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> OtpScreen( verificationId: verId, phoneNumber: phoneNumber, name: name,)));
           print("OTP sent");
         },
         codeAutoRetrievalTimeout: (String verId){

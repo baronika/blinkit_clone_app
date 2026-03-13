@@ -43,7 +43,6 @@ class _BottomSheetFilterState extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 400,
             height: 600,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,9 +53,9 @@ class _BottomSheetFilterState extends StatelessWidget {
                       fontSize: 20
                   ),
                 ),
-                Flexible(
-                    child: SearchBar2()
-                ),
+                // Flexible(
+                //     child: SearchBar2()
+                // ),
                 SizedBox(height: 20,),
                 Row(
                   children: [

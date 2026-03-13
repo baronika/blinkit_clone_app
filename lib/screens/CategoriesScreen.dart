@@ -5,7 +5,7 @@ import 'package:blinkit_clone_app/services/api/product_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'HomeScreen.dart';
-import 'components/SearchAppBar.dart';
+import '../components/SearchAppBar.dart';
 
 class CategoriesScreen extends StatefulWidget{
   @override
@@ -37,6 +37,7 @@ class _CategoriesScreenState extends State<CategoriesScreen>{
           SizedBox(
             child: Padding(padding: EdgeInsets.all(20),
               child: Column(
+
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

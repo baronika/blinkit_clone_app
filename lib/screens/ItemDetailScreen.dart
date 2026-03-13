@@ -2,7 +2,7 @@ import 'package:blinkit_clone_app/components/Boxes.dart';
 import 'package:blinkit_clone_app/components/Grids.dart';
 import 'package:blinkit_clone_app/components/Grids3.dart';
 import 'package:blinkit_clone_app/components/ScrollableList.dart';
-import 'package:blinkit_clone_app/SingleDetailBox.dart';
+import 'package:blinkit_clone_app/components/SingleDetailBox.dart';
 import 'package:blinkit_clone_app/components/add_button.dart';
 import 'package:blinkit_clone_app/components/custom_rating_bar.dart';
 import 'package:blinkit_clone_app/components/go_to_cart.dart';
